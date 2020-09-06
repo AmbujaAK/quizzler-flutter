@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 showAlert(context){
   return Alert(
     context: context,
-    type: AlertType.error,
-    title: "Quiz Over. Please Restart",
+    type: AlertType.success,
+    title: "Please Restart",
     desc: "Quiz is over, click on restart.",
     buttons: [
       DialogButton(

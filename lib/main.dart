@@ -44,12 +44,34 @@ class _QuizPageState extends State<QuizPage> {
     });
   }
 
+  void resetQuestionBank(){
+    setState(() {
+      showAlert(context);
+      quizBrain.resetQuestionsBank();
+      scoreKeeper.clear();
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
+        Expanded(
+          flex: 1,
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Center(
+              child: Text(
+                (quizBrain.getQuestionNumber() + 1).toString() + '.',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 56
+                ),
+              ),
+            ),
+          ),
+        ),
         Expanded(
           flex: 5,
           child: Padding(
@@ -81,9 +103,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 if(quizBrain.getQuestionNumber() == quizBrain.getQuestionBankLength() - 1){
-                  setState(() {
-                    showAlert(context);
-                  });
+                  resetQuestionBank();
                 } else {
                   checkAnswer(true);
                 }
@@ -105,9 +125,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 if(quizBrain.getQuestionNumber() == quizBrain.getQuestionBankLength() - 1){
-                  setState(() {
-                    showAlert(context);
-                  });
+                  resetQuestionBank();
                 } else {
                   checkAnswer(true);
                 }

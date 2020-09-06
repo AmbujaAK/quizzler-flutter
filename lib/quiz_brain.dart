@@ -50,7 +50,7 @@ class QuizBrain {
     return _questionNumber;
   }
 
-  void setQuestionNumber(){
+  void resetQuestionsBank(){
     this._questionNumber = 0;
   }
 
