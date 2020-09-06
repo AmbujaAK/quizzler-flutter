@@ -45,4 +45,16 @@ class QuizBrain {
   bool getAnswer(){
     return _questionsBank[_questionNumber].questionAnswer;
   }
+
+  int getQuestionNumber(){
+    return _questionNumber;
+  }
+
+  void setQuestionNumber(){
+    this._questionNumber = 0;
+  }
+
+  int getQuestionBankLength(){
+    return _questionsBank.length;
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizzler/quiz_brain.dart';
+import 'alert.dart';
 
 QuizBrain quizBrain = QuizBrain();
 
@@ -79,7 +80,13 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                checkAnswer(true);
+                if(quizBrain.getQuestionNumber() == quizBrain.getQuestionBankLength() - 1){
+                  setState(() {
+                    showAlert(context);
+                  });
+                } else {
+                  checkAnswer(true);
+                }
               },
             ),
           ),
@@ -97,7 +104,13 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                checkAnswer(false);
+                if(quizBrain.getQuestionNumber() == quizBrain.getQuestionBankLength() - 1){
+                  setState(() {
+                    showAlert(context);
+                  });
+                } else {
+                  checkAnswer(true);
+                }
               },
             ),
           ),
